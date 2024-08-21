@@ -1,5 +1,5 @@
-#ifndef BATTERYTYPEWISEALERT_HPP
-#define BATTERYTYPEWISEALERT_HPP
+#ifndef BATTERY_TYPEWISE_ALERT_HPP
+#define BATTERY_TYPEWISE_ALERT_HPP
 
 #include "coolingStrategy.hpp"
 #include "batteryCharacter.hpp"
@@ -26,4 +26,4 @@ void sendToEmail(BreachType breachType);
 
 typedef void (*AlertFunction)(BreachType);
 
-#endif //BATTERYTYPEWISEALERT_HPP
+#endif //BATTERY_TYPEWISE_ALERT_HPP
