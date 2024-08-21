@@ -2,6 +2,7 @@
 #define COOLING_STRATEGY_HPP
 
 #include "batteryTypewiseAlert.hpp"
+#include "breachType.hpp"
 
 typedef enum {
   PASSIVE_COOLING,
