@@ -3,7 +3,6 @@
 
 #include "CoolingStrategy.hpp"
 #include "BatteryCharacter.hpp"
-#include <unordered_map>
 
 typedef enum {
   PASSIVE_COOLING,
