@@ -7,4 +7,7 @@ enum BreachType {
     TOO_HIGH
 };
 
+BreachType inferBreach(double value, double lowerLimit, double upperLimit);
+BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInCelcius);
+
 #endif // BREACHTYPE_HPP
