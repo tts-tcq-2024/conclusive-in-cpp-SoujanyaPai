@@ -1,7 +1,7 @@
 #ifndef BATTERY_CHARACTER_HPP
 #define BATTERY_CHARACTER_HPP
 
-#include "CoolingStrategy.hpp"
+#include "coolingStrategy.hpp"
 
 struct BatteryCharacter {
     CoolingStrategy* coolingStrategy;
