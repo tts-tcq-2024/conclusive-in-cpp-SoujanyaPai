@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "typewise-alert.h"
+#include "batteryTypewiseAlert.hpp"
 
 TEST(TypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
     BatteryCharacter batteryChar;
@@ -21,5 +21,4 @@ TEST(TypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
     EXPECT_EQ(classifyTemperatureBreach(batteryChar, -3), TOO_LOW);
     EXPECT_EQ(classifyTemperatureBreach(batteryChar, 50), TOO_HIGH);
     EXPECT_EQ(classifyTemperatureBreach(batteryChar, 33), NORMAL);
-
 }
