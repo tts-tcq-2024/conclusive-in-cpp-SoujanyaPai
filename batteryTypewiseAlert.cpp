@@ -1,5 +1,4 @@
 #include "batteryTypewiseAlert.hpp"
-#include "coolingStrategy.hpp"
 #include <stdio.h>
 #include <unordered_map>
 
