@@ -10,9 +10,6 @@ typedef enum {
   TO_EMAIL
 } AlertTarget;
 
-BreachType inferBreach(double value, double lowerLimit, double upperLimit);
-BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInCelcius);
-
 void checkAndAlert(
   AlertTarget alertTarget, const BatteryCharacter batteryChar, double temperatureInCelcius);
 
