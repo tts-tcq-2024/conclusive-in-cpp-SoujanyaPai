@@ -3,6 +3,12 @@
 
 #include "typewise-alert.hpp"
 
+typedef enum {
+  PASSIVE_COOLING,
+  HI_ACTIVE_COOLING,
+  MED_ACTIVE_COOLING
+} CoolingType;
+
 class CoolingStrategy {
 public:
     virtual ~CoolingStrategy() = default;
