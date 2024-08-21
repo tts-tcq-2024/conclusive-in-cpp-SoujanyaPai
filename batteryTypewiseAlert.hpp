@@ -4,11 +4,11 @@
 #include "coolingStrategy.hpp"
 #include "batteryCharacter.hpp"
 
-typedef enum {
+enum BreachType {
     NORMAL,
     TOO_LOW,
     TOO_HIGH
-} BreachType;
+};
 
 typedef enum {
   TO_CONTROLLER,
