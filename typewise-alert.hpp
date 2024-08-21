@@ -1,8 +1,8 @@
-#ifndef TYPEWISEALERT_HPP
-#define TYPEWISEALERT_HPP
+#ifndef BATTERYTYPEWISEALERT_HPP
+#define BATTERYTYPEWISEALERT_HPP
 
-#include "CoolingStrategy.hpp"
-#include "BatteryCharacter.hpp"
+#include "coolingStrategy.hpp"
+#include "batteryCharacter.hpp"
 
 typedef enum {
     NORMAL,
@@ -26,4 +26,4 @@ void sendToEmail(BreachType breachType);
 
 typedef void (*AlertFunction)(BreachType);
 
-#endif //TYPEWISE-ALERT_HPP
+#endif //BATTERYTYPEWISEALERT_HPP
