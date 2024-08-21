@@ -45,7 +45,7 @@ void sendToEmail(BreachType breachType) {
         { TOO_HIGH, "Hi, the temperature is too high" }
     };
     if (breachMessages.find(breachType) != breachMessages.end()) {
-        printf("To: %s\n", recipient);
+        printf("To: %s\n", recepient);
         printf("%s\n", breachMessages[breachType]);
     }
 }
