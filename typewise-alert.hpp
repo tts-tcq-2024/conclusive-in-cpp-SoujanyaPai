@@ -5,12 +5,6 @@
 #include "BatteryCharacter.hpp"
 
 typedef enum {
-  PASSIVE_COOLING,
-  HI_ACTIVE_COOLING,
-  MED_ACTIVE_COOLING
-} CoolingType;
-
-typedef enum {
     NORMAL,
     TOO_LOW,
     TOO_HIGH
@@ -22,10 +16,10 @@ typedef enum {
 } AlertTarget;
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit);
-BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
+BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInCelcius);
 
 void checkAndAlert(
-  AlertTarget alertTarget, const BatteryCharacter batteryChar, double temperatureInC);
+  AlertTarget alertTarget, const BatteryCharacter batteryChar, double temperatureInCelcius);
 
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
