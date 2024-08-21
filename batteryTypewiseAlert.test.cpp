@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "batteryTypewiseAlert.hpp"
 
-TEST(TypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
+TEST(BatteryTypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
     BatteryCharacter batteryChar;
     PassiveCoolingStrategy passiveStrategy;
     HiActiveCoolingStrategy hiActiveStrategy;
@@ -21,4 +21,18 @@ TEST(TypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
     EXPECT_EQ(classifyTemperatureBreach(batteryChar, -3), TOO_LOW);
     EXPECT_EQ(classifyTemperatureBreach(batteryChar, 50), TOO_HIGH);
     EXPECT_EQ(classifyTemperatureBreach(batteryChar, 33), NORMAL);
+}
+
+TEST(BatteryTypeWiseAlertTestSuite, ChecksAndSendsAlertToCorrectTarget) {
+    BatteryCharacter batteryChar = {PASSIVE_COOLING, "BrandA"};
+
+    testing::internal::CaptureStdout();
+    checkAndAlert(TO_CONTROLLER, batteryChar, 50);
+    std::string output = testing::internal::GetCapturedStdout();
+    EXPECT_EQ(output, "feed : 2\n"); 
+
+    testing::internal::CaptureStdout();
+    checkAndAlert(TO_EMAIL, batteryChar, -5);
+    output = testing::internal::GetCapturedStdout();
+    EXPECT_EQ(output, "To: a.b@c.com\nHi, the temperature is too low\n");
 }
