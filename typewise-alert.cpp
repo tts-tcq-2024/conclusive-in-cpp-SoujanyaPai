@@ -12,9 +12,9 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   return NORMAL;
 }
 
-BreachType classifyTemperatureBreach(const BatteryCharacter& batteryChar, double temperatureInC) {
+BreachType classifyTemperatureBreach(const BatteryCharacter& batteryChar, double temperatureInCelcius) {
   if (batteryChar.coolingStrategy) {
-      return batteryChar.coolingStrategy -> classifyTemperature(temperatureInC);
+      return batteryChar.coolingStrategy -> classifyTemperature(temperatureInCelcius);
   } 
   else {
       return NORMAL;
@@ -22,9 +22,9 @@ BreachType classifyTemperatureBreach(const BatteryCharacter& batteryChar, double
 }
 
 void checkAndAlert(
-    AlertTarget alertTarget, const BatteryCharacter batteryChar, double temperatureInC) {
+    AlertTarget alertTarget, const BatteryCharacter batteryChar, double temperatureInCelcius) {
 
-  BreachType breachType = classifyTemperatureBreach(batteryChar, temperatureInC);
+  BreachType breachType = classifyTemperatureBreach(batteryChar, temperatureInCelcius);
 
   std::unordered_map<AlertTarget, void(*)(BreachType)> sendAlertFunctionMap = {
         { TO_CONTROLLER, sendToController },
