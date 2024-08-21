@@ -2,7 +2,6 @@
 #define COOLING_STRATEGY_HPP
 
 #include "typewise-alert.hpp"
-#include "BreachType.hpp"
 
 class CoolingStrategy {
 public:
