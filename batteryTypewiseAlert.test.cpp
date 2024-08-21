@@ -1,5 +1,8 @@
 #include <gtest/gtest.h>
 #include "batteryTypewiseAlert.hpp"
+#include "hiActiveCoolingStrategy.hpp"
+#include "medActiveCoolingStrategy.hpp"
+#include "passiveCoolingStrategy.hpp"
 
 TEST(BatteryTypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
     BatteryCharacter batteryChar;
