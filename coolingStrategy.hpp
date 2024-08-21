@@ -15,6 +15,7 @@ public:
     virtual ~CoolingStrategy() = default;
     virtual BreachType classifyTemperature(double temperatureInCelcius) const = 0;
 };
+#endif // COOLING_STRATEGY_HPP
 
 class HiActiveCoolingStrategy : public CoolingStrategy {
 public:
@@ -36,5 +37,3 @@ public:
         return inferBreach(temperatureInCelcius, 0, 35);
     }
 };
-
-#endif // COOLING_STRATEGY_HPP
