@@ -10,27 +10,27 @@ typedef enum {
   MED_ACTIVE_COOLING
 } CoolingType;
 
-class CoolingStrategyTypes {
+class CoolingStrategy {
 public:
-    virtual ~CoolingStrategyTypes() = default;
+    virtual ~CoolingStrategy() = default;
     virtual BreachType classifyTemperature(double temperatureInCelcius) const = 0;
 };
 
-class HiActiveCoolingStrategy : public CoolingStrategyTypes {
+class HiActiveCoolingStrategy : public CoolingStrategy {
 public:
     BreachType classifyTemperature(double temperatureInCelcius) const override {
         return inferBreach(temperatureInCelcius, 0, 45);
     }
 };
 
-class MedActiveCoolingStrategy : public CoolingStrategyTypes {
+class MedActiveCoolingStrategy : public CoolingStrategy {
 public:
     BreachType classifyTemperature(double temperatureInCelcius) const override {
         return inferBreach(temperatureInCelcius, 0, 40);
     }
 };
 
-class PassiveCoolingStrategy : public CoolingStrategyTypes {
+class PassiveCoolingStrategy : public CoolingStrategy {
 public:
     BreachType classifyTemperature(double temperatureInCelcius) const override {
         return inferBreach(temperatureInCelcius, 0, 35);
