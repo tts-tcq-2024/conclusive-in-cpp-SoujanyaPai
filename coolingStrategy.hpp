@@ -4,18 +4,11 @@
 #include "batteryTypewiseAlert.hpp"
 #include "breachType.hpp"
 
-typedef enum {
-  PASSIVE_COOLING,
-  HI_ACTIVE_COOLING,
-  MED_ACTIVE_COOLING
-} CoolingType;
-
 class CoolingStrategy {
 public:
     virtual ~CoolingStrategy() = default;
     virtual BreachType classifyTemperature(double temperatureInCelcius) const = 0;
 };
-#endif // COOLING_STRATEGY_HPP
 
 class HiActiveCoolingStrategy : public CoolingStrategy {
 public:
@@ -37,3 +30,11 @@ public:
         return inferBreach(temperatureInCelcius, 0, 35);
     }
 };
+
+typedef enum {
+  PASSIVE_COOLING,
+  HI_ACTIVE_COOLING,
+  MED_ACTIVE_COOLING
+} CoolingType;
+
+#endif // COOLING_STRATEGY_HPP
