@@ -25,7 +25,6 @@ TEST(BatteryTypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
 }
 
 TEST(BatteryTypeWiseAlertTestSuite, ChecksAndSendsAlertToCorrectTarget) {
-    BatteryCharacter batteryChar;
     PassiveCoolingStrategy passiveCooling;
     BatteryCharacter batteryChar = {&passiveCooling, "BrandA"};
 
