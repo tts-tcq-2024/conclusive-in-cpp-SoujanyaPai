@@ -25,7 +25,8 @@ TEST(BatteryTypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
 }
 
 TEST(BatteryTypeWiseAlertTestSuite, ChecksAndSendsAlertToCorrectTarget) {
-    BatteryCharacter batteryChar = {PASSIVE_COOLING, "BrandA"};
+    PassiveCoolingStrategy passiveCooling;
+    BatteryCharacter batteryChar = {passiveCooling, "BrandA"};
 
     testing::internal::CaptureStdout();
     checkAndAlert(TO_CONTROLLER, batteryChar, 50);
