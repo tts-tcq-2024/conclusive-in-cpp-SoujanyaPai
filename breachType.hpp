@@ -7,4 +7,6 @@ enum BreachType {
     TOO_HIGH
 };
 
+BreachType inferBreach(double value, double lowerLimit, double upperLimit);
+
 #endif // BREACHTYPE_HPP
