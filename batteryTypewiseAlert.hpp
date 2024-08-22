@@ -10,6 +10,8 @@ typedef enum {
   TO_EMAIL
 } AlertTarget;
 
+BreachType classifyTemperatureBreach(const BatteryCharacter& batteryChar, double temperatureInCelcius);
+
 void checkAndAlert(
   AlertTarget alertTarget, const BatteryCharacter batteryChar, double temperatureInCelcius);
 
