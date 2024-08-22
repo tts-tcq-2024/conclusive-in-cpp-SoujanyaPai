@@ -2,13 +2,21 @@
 #include "batteryTypewiseAlert.hpp"
 #include "coolingStrategy.hpp"
 
-    BatteryCharacter batteryChar;
-    PassiveCoolingStrategy passiveCooling;
-    HiActiveCoolingStrategy hiActiveCooling;
-    MedActiveCoolingStrategy medActiveCooling;
+class BatteryTypeWiseAlertTestSuite: public :: testing::Test {
+    void SetUp() override{
+        BatteryCharacter batteryChar;
+        PassiveCoolingStrategy passiveCooling;
+        HiActiveCoolingStrategy hiActiveCooling;
+        MedActiveCoolingStrategy medActiveCooling;
+    }
 
-TEST(BatteryTypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
-    batteryChar.coolingStrategy = &passiveCooling;
+    void TearDown() override{
+    }
+};
+
+TEST(BatteryTypeWiseAlert,InfersBreachAccordingToLimits) {
+    
+    batteryChar.coolingStrategy = &passiveCooling
     EXPECT_EQ(classifyTemperatureBreach(batteryChar, -5), TOO_LOW);
     EXPECT_EQ(classifyTemperatureBreach(batteryChar, 39), TOO_HIGH);
     EXPECT_EQ(classifyTemperatureBreach(batteryChar, 20), NORMAL);
@@ -24,8 +32,7 @@ TEST(BatteryTypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
     EXPECT_EQ(classifyTemperatureBreach(batteryChar, 33), NORMAL);
 }
 
-TEST(BatteryTypeWiseAlertTestSuite, ChecksAndSendsAlertToCorrectTarget) {
-    batteryChar.coolingStrategy = &passiveCooling;
+TEST(BatteryTypeWiseAlert, ChecksAndSendsAlertToCorrectTarget) {
     BatteryCharacter batteryChar = {&passiveCooling, "BrandA"};
 
     testing::internal::CaptureStdout();
