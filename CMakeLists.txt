@@ -18,8 +18,8 @@ enable_testing()
 add_compile_options("--coverage")
 add_executable(
   cleancode
-  typewise-alert.cpp
-  typewise-alert.tests.cpp
+  batteryTypewiseAlert.cpp
+  batteryTypewiseAlert.test.cpp
 )
 target_link_libraries(
   cleancode
