@@ -2,12 +2,12 @@
 #include "batteryTypewiseAlert.hpp"
 #include "coolingStrategy.hpp"
 
-TEST(BatteryTypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
     BatteryCharacter batteryChar;
     PassiveCoolingStrategy passiveCooling;
     HiActiveCoolingStrategy hiActiveCooling;
     MedActiveCoolingStrategy medActiveCooling;
 
+TEST(BatteryTypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
     batteryChar.coolingStrategy = &passiveCooling;
     EXPECT_EQ(classifyTemperatureBreach(batteryChar, -5), TOO_LOW);
     EXPECT_EQ(classifyTemperatureBreach(batteryChar, 39), TOO_HIGH);
@@ -25,8 +25,8 @@ TEST(BatteryTypeWiseAlertTestSuite,InfersBreachAccordingToLimits) {
 }
 
 TEST(BatteryTypeWiseAlertTestSuite, ChecksAndSendsAlertToCorrectTarget) {
-    PassiveCoolingStrategy passiveCooling;
-    BatteryCharacter batteryChar = {passiveCooling, "BrandA"};
+    batteryChar.coolingStrategy = &passiveCooling;
+    BatteryCharacter batteryChar = {&passiveCooling, "BrandA"};
 
     testing::internal::CaptureStdout();
     checkAndAlert(TO_CONTROLLER, batteryChar, 50);
